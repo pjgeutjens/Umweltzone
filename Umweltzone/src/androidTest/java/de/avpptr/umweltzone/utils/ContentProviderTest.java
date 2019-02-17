@@ -148,7 +148,9 @@ public class ContentProviderTest {
         assertThat(boundingBox).isNotNull();
         assertThat(boundingBox.isValid()).isTrue();
 
-        lowEmissionZone.childZones.forEach(this::testChildZone);
+        for (ChildZone childZone : lowEmissionZone.childZones) {
+            testChildZone(childZone);
+        }
 
         assertThat(lowEmissionZone.urlUmweltPlaketteDe)
                 .isNotNull()
